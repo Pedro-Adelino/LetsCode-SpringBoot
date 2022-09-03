@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.letscode.ecommerce.service.HorarioService;
 
 @RestController
-public class HelloEndPoints {
+public class HelloEndpoints {
 
     @Autowired
     HorarioService horarioService;
 
     // Logger log = LoggerFactory.getLogger(HelloEndPoints.class);
-    Logger log = LoggerFactory.getLogger(HelloEndPoints.class);
+    Logger log = LoggerFactory.getLogger(HelloEndpoints.class);
 
     @RequestMapping(path = "/hello", method = RequestMethod.GET)
     public ResponseEntity<String> hello() {

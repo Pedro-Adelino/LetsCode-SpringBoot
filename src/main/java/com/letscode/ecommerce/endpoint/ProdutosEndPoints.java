@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProdutosEndPoints {
+public class ProdutosEndpoints {
 
     @RequestMapping(path = "/novoProduto", method = RequestMethod.POST)
     public ResponseEntity<String> novoProduto() {
