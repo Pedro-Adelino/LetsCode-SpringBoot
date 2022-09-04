@@ -1,7 +1,5 @@
 package com.letscode.ecommerce.models;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,24 +7,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.ToString;
+
+@ToString
 @Entity
 @Table(name = "produtos")
-public class Produtos {
+public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
 
     @Column(name = "preco")
-    private BigDecimal preco;
+    private Double preco;
 
     @Column(name = "descricao")
     private String descricao;
 
-    public Produtos(String nome, BigDecimal preco, String descricao) {
+    public Produto() {
+
+    }
+
+    public Produto(String nome, Double preco, String descricao) {
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
@@ -40,11 +45,11 @@ public class Produtos {
         this.nome = nome;
     }
 
-    public BigDecimal getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
@@ -57,6 +62,6 @@ public class Produtos {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 }

@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HorarioServiceImp implements HorarioService {
+public class HorarioServiceImpl implements HorarioService {
 
     public String resposta(String nome) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
