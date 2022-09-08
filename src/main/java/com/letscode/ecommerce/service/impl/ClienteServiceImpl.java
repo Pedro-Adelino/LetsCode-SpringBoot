@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.letscode.ecommerce.dao.ClienteDao;
+import com.letscode.ecommerce.dto.ClienteDto;
 import com.letscode.ecommerce.models.Cliente;
 import com.letscode.ecommerce.service.ClienteService;
 
@@ -21,7 +22,19 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public boolean novoCliente(ClienteDao cliente) {
+    public Cliente novoCliente(ClienteDto cliente) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean atualizarCliente(Cliente cliente) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean removerCliente(long id) {
         // TODO Auto-generated method stub
         return false;
     }
