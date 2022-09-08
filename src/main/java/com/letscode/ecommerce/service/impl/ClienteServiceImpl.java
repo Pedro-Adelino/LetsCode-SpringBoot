@@ -1,4 +1,4 @@
-package com.letscode.ecommerce.service;
+package com.letscode.ecommerce.service.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.letscode.ecommerce.dao.ClienteDao;
 import com.letscode.ecommerce.models.Cliente;
+import com.letscode.ecommerce.service.ClienteService;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {

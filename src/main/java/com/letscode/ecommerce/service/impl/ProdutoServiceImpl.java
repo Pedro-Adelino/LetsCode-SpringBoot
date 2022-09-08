@@ -1,4 +1,4 @@
-package com.letscode.ecommerce.service;
+package com.letscode.ecommerce.service.impl;
 
 import java.util.NoSuchElementException;
 
@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.letscode.ecommerce.dao.ProdutoDao;
 import com.letscode.ecommerce.dto.ProdutoDto;
 import com.letscode.ecommerce.models.Produto;
+import com.letscode.ecommerce.service.ProdutoService;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
