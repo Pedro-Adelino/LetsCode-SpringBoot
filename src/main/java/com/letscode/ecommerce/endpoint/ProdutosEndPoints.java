@@ -3,6 +3,7 @@ package com.letscode.ecommerce.endpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class ProdutosEndpoints {
     @Autowired
     ProdutoService service;
 
-    @RequestMapping(path = "/novoProduto", method = RequestMethod.POST)
+    @RequestMapping(path = "/produto", method = RequestMethod.POST)
     public ResponseEntity<String> novoProduto(@RequestBody ProdutoDto produtoDto) {
         Boolean sucesso = service.novoProduto(produtoDto);
 
@@ -31,12 +32,13 @@ public class ProdutosEndpoints {
 
     }
 
-    @RequestMapping(path = "/pegaProduto/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/produto/{id}", method = RequestMethod.GET)
     public ResponseEntity<Produto> pegaProdutoPorId(@PathVariable Long id) {
         return new ResponseEntity<Produto>(service.pegaProdutoPorId(id), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/excluiProduto/{id}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @RequestMapping(path = "/produto/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<String> excluiProdutoPorId(@PathVariable Long id) {
         Boolean sucesso = service.excluiProdutoPorId(id);
 
@@ -47,7 +49,7 @@ public class ProdutosEndpoints {
         }
     }
 
-    @RequestMapping(path = "/atualizaProduto", method = RequestMethod.PUT)
+    @RequestMapping(path = "/produto", method = RequestMethod.PUT)
     public ResponseEntity<String> atualizaProduto(@RequestBody Produto produto) {
         Boolean sucesso = service.atualizaProduto(produto);
 

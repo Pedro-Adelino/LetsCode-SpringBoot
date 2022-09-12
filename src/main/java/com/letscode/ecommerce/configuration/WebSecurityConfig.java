@@ -52,6 +52,7 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 // Requests para as URLs e metodos abaixo sao permitidas SEM AUTENTICACAO
                 .antMatchers(HttpMethod.POST, "/cliente").permitAll()
+                .antMatchers(HttpMethod.GET, "/produto/{id}").permitAll()
                 .antMatchers("/instances/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated() // Qualquer outra requisicao obriga autenticacao

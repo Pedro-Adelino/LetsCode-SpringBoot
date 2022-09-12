@@ -21,7 +21,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     // Indica que a classe eh de autorizacao (recebendo um AuthenticationManager)
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
-        // TODO Auto-generated constructor stub
     }
 
     // Filtro interno (a ser aplicada em todas as requisicoes, a nao ser as URLs
