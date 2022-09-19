@@ -3,8 +3,10 @@ package com.letscode.ecommerce.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.letscode.ecommerce.dao.ClienteDao;
 import com.letscode.ecommerce.dto.ClienteDto;
@@ -61,6 +63,17 @@ public class ClienteServiceImpl implements ClienteService {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    @Override
+    public Cliente pegaClientePorId(Long id) {
+        try {
+            Cliente cliente = clienteDao.findById(id).get();
+            cliente.setSenha("");
+            return cliente;
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado");
         }
     }
 

@@ -10,6 +10,8 @@ public interface ClienteService {
 
     Cliente novoCliente(ClienteDto cliente);
 
+    Cliente pegaClientePorId(Long id);
+
     boolean atualizarCliente(Cliente cliente);
 
     boolean removerCliente(long id);

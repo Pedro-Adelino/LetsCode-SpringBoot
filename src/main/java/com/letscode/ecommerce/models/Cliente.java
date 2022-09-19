@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -46,6 +48,10 @@ public class Cliente {
 
     @Enumerated(EnumType.STRING)
     private PerfilEnum perfil;
+
+    @ManyToOne
+    @JoinColumn(name = "pedidos")
+    private Pedido pedido;
 
     public Cliente(String nome, String sobrenome, String email, String sexo, String cpf, String senha,
             PerfilEnum perfil) {

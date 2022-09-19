@@ -51,8 +51,15 @@ public class WebSecurityConfig {
                                            // domain sao permitidas) e desabilita CSRF (Cross-site request forgery)
                 .authorizeRequests()
                 // Requests para as URLs e metodos abaixo sao permitidas SEM AUTENTICACAO
+                .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html")
+                .permitAll()
                 .antMatchers(HttpMethod.POST, "/cliente").permitAll()
                 .antMatchers(HttpMethod.GET, "/produto/{id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/pedidos").permitAll()
+                .antMatchers(HttpMethod.POST, "/pedido").permitAll()
+                .antMatchers(HttpMethod.GET, "/pedido/{id}").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/pedido/{id}").permitAll()
+                .antMatchers(HttpMethod.PUT, "/pedido").permitAll()
                 .antMatchers("/instances/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated() // Qualquer outra requisicao obriga autenticacao
