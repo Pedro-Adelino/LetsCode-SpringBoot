@@ -13,7 +13,7 @@ public interface PedidoService {
 
     Pedido pegaPedidoPorId(Long id);
 
-    Pedido excluiPedidoPorId(Long id);
+    Boolean excluiPedidoPorId(Long id);
 
-    Pedido atualizaPedido(Pedido pedido);
+    Boolean atualizaPedido(Pedido pedido);
 }
